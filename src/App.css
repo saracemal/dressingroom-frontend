@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+/*img element as its own class */
+
+img {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 250px; /* Set a small width */
+}
+
+/* .inspo-card {
+  width: 200px;
+  height: 120px;
+}
+
+/* resize images */
+/* .inspo-card img {
+  width: 100%;
+  height: auto;
+} */ 

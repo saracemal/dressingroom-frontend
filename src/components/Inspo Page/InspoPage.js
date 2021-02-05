@@ -1,16 +1,14 @@
 import React from "react"
-import InspoCard from "./InspoCard"
 import InspoContainer from "./InspoContainer"
 import NewInspoForm from "./NewInspoForm"
 import MainHeader from "../MainHeader"
 
-function InspoPage() {
+function InspoPage({inspos, newInspoImg, newInspoCaption, setNewInspoImg, setNewInspoCaption, handleInspoDelete, handleNewInspoSubmit}) {
     return (
         <div>
             <MainHeader />
-            <InspoCard />
-            <InspoContainer />
-            <NewInspoForm />
+            <InspoContainer inspos={inspos} handleInspoDelete={handleInspoDelete} />
+            <NewInspoForm newInspoImg={newInspoImg} newInspoCaption={newInspoCaption} setNewInspoImg={setNewInspoImg} setNewInspoCaption={setNewInspoCaption} handleNewInspoSubmit={handleNewInspoSubmit}/>
         </div>
     )
 }

@@ -1,16 +1,14 @@
 import React from "react"
 import MainHeader from "../MainHeader"
 import ClosetContainer from "./ClosetContainer"
-import ClosetCard from "./ClosetCard"
 import ClosetForm from "./ClosetForm"
 
-function HomePage() {
+function HomePage({closets, newCloset, setNewCloset, handleClosetDelete, handleNewStorySubmit}) {
     return (
         <div>
             <MainHeader />
-            <ClosetContainer />
-            <ClosetCard />
-            <ClosetForm />
+            <ClosetContainer closets={closets} handleClosetDelete={handleClosetDelete}/>
+            <ClosetForm newCloset={newCloset} setNewCloset={setNewCloset} handleNewStorySubmit={handleNewStorySubmit}/>
         </div>
     )
 }

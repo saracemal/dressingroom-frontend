@@ -1,16 +1,14 @@
 import React from "react"
 import ClothingItemContainer from "./ClothingItemContainer"
-import ClothingItemCard from "./ClothingItemCard"
 import NewClothingItemForm from "./NewClothingItemForm"
 import SortingContainer from "./SortingContainer"
 import MainHeader from "../MainHeader"
 
-function ClosetPage() {
+function ClosetPage({clothingItems, handleClothingItemDelete}) {
     return (
         <div>
             <MainHeader />
-            <ClothingItemContainer />
-            <ClothingItemCard />
+            <ClothingItemContainer clothingItems={clothingItems} handleClothingItemDelete={handleClothingItemDelete}/>
             <NewClothingItemForm />
             <SortingContainer />
         </div>
