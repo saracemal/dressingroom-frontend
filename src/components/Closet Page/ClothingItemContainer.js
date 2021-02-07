@@ -4,6 +4,7 @@ import ClothingItemCard from "./ClothingItemCard"
 //if clothing items === null, return "no clothes yet! let's add some."
 // or display clothing item cards
 function ClothingItemContainer({clothingItems, handleClothingItemDelete}) {
+
     const clothingItemCards = clothingItems.map((clothingItem) => (
         <ClothingItemCard key={clothingItem.id} clothingItem={clothingItem} handleClothingItemDelete={handleClothingItemDelete}/>
     ))

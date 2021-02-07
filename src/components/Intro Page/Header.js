@@ -1,9 +1,11 @@
 import React from "react"
+import HeaderButtons from "./HeaderButtons"
 
 function Header() {
     return (
         <div>
-            <h1>I am the intro page header</h1>
+            <h1 className="header-title">Dressing Room</h1>
+            <HeaderButtons />
         </div>
     )
 }

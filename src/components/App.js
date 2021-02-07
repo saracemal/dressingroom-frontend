@@ -11,6 +11,9 @@ function App() {
   // login states
   const [currentUser, setCurrentUser] = useState(null);
 
+  //
+  // const [currentUserCloset, setCurrentUserCloset] = useState()
+
   // model states
   const [users, setUsers] = useState([])
   const [closets, setClosets] = useState([])
@@ -149,8 +152,6 @@ function handleNewInspoSubmit(e) {
 
 // CLOTHING ITEM HANDLERS
 
-
-
 function handleClothingItemDelete(clothingItemId) {
   fetch(`http://localhost:3000/clothingItemId/${clothingItemId}`, {
       method: "DELETE",
@@ -162,6 +163,33 @@ function handleClothingItemDelete(clothingItemId) {
         )
         setUserClothingItems(updatedClothingItemArray)
       })
+}
+
+function handleNewClothingItemSubmit(e) {
+  e.preventDefault()
+  fetch("http://localhost:3000/clothing_items", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      user_id: currentUser,
+      brand: newBrand,
+      size: newSize,
+      description: newDescription, 
+      season: newSeason,
+      img_url: newImgUrl
+    })
+  })
+    .then((r) => r.json())
+    .then(resObj => {
+      setNewBrand(resObj.brand)
+      setNewSize(resObj.size)
+      setNewDescription(resObj.description)
+      setNewSeason(resObj.season)
+      setNewImgUrl(resObj.img_url)
+    })
+
 }
 
   return (
@@ -196,6 +224,7 @@ function handleClothingItemDelete(clothingItemId) {
           setNewSeason={setNewSeason}
           newImgUrl={newImgUrl}
           setNewImgUrl={setNewImgUrl}
+          handleNewClothingItemSubmit={handleNewClothingItemSubmit}
            />
         </Route>
         <Route exact path="/inspo">

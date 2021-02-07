@@ -1,9 +1,11 @@
 import React from "react"
+import MainHeaderButtons from "./MainHeaderButtons"
 
 function MainHeader() {
    return (
        <div>
-           <h3>I am the Main Header</h3>
+          <h3 className="main-header-title">I am the main header </h3>
+           <MainHeaderButtons />
        </div>
    )
 }
