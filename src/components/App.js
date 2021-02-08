@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory, useParams } from "react-router-dom";
 import IntroPage from "./Intro Page/IntroPage"
 import HomePage from "./Home Page/HomePage"
 import ClosetPage from "./Closet Page/ClosetPage"
@@ -7,6 +7,7 @@ import InspoPage from "./Inspo Page/InspoPage"
 import '../App.css';
 
 function App() {
+  const params = useParams();
   let history = useHistory()
   // login states
   const [currentUser, setCurrentUser] = useState(null);
@@ -37,7 +38,6 @@ function App() {
   const [newDescription, setNewDescription] = useState("")
   const [newSeason, setNewSeason] = useState("")
   const [newImgUrl, setNewImgUrl] = useState("")
-
 
 
   // USER FETCH

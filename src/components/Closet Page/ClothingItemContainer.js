@@ -5,9 +5,18 @@ import ClothingItemCard from "./ClothingItemCard"
 // or display clothing item cards
 function ClothingItemContainer({clothingItems, handleClothingItemDelete}) {
 
-    const clothingItemCards = clothingItems.map((clothingItem) => (
-        <ClothingItemCard key={clothingItem.id} clothingItem={clothingItem} handleClothingItemDelete={handleClothingItemDelete}/>
-    ))
+    let clothingItemCards
+    if (clothingItems) {
+        clothingItemCards = clothingItems.map((clothingItem) => (
+            <ClothingItemCard key={clothingItem.id} clothingItem={clothingItem} handleClothingItemDelete={handleClothingItemDelete}/>
+        ))
+    } else {
+        clothingItemCards = <p className="clothing-item-p"> No clothing to display. Let's add some! </p>
+    }
+
+    // const clothingItemCards = clothingItems.map((clothingItem) => (
+    //     <ClothingItemCard key={clothingItem.id} clothingItem={clothingItem} handleClothingItemDelete={handleClothingItemDelete}/>
+    // ))
     return (
         <div>
             <h1>I am the clothingitem container</h1>
