@@ -9,8 +9,13 @@ import '../App.css';
 function App() {
   const params = useParams();
   let history = useHistory()
+
   // login states
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [loginUsername, setLoginUsername] = useState("")
+  // const [userClosets, setUserClosets] = useState([])
+  // const [userInspos, setUserInspos] = useState([])
 
   //
   // const [currentUserCloset, setCurrentUserCloset] = useState()
@@ -46,6 +51,21 @@ function App() {
   //   .then((r) => r.json())
   //   .then(setUsers)
   // }, [])
+
+  function handleLoginSubmit() {
+    fetch("http://localhost:3000/users")
+      .then((r) => r.json())
+      .then(userArr => {
+        userArr.forEach(user => {
+          if (user.name === loginUsername) {
+              setIsLoggedIn(true)
+              setCurrentUser(user)
+              setUserClosets(user.closets)
+              setUserInspos(user.inspos)
+          }
+        })
+      })
+  }
 
   // CLOSET FETCH
   useEffect(() => {
@@ -84,7 +104,7 @@ function App() {
   }
 
   //CLOSET HANDLERS
-  function handleNewStorySubmit(e) {
+  function handleNewClosetSubmit(e) {
     e.preventDefault()
     fetch("http://localhost:3000/closets", {
       method: "POST",
@@ -99,7 +119,7 @@ function App() {
       .then((r) => r.json())
       .then(resObj => {
         setNewClosetName(resObj.name)
-        history.pushState(`/closet/${resObj.id}`)
+        history.push(`/closet/${resObj.id}`)
       })
   }
 
@@ -117,8 +137,9 @@ function App() {
   }
 
 //INSPO HANDLERS
-function handleInspoDelete(inspoId) {
-    fetch(`http://localhost:3000/inspo/${inspoId}`, {
+function handleInspoDelete(id) {
+  console.log(id)
+    fetch(`http://localhost:3000/inspos/${id}`, {
       method: "DELETE",
     })
       .then((r) => r.json())
@@ -153,7 +174,7 @@ function handleNewInspoSubmit(e) {
 // CLOTHING ITEM HANDLERS
 
 function handleClothingItemDelete(clothingItemId) {
-  fetch(`http://localhost:3000/clothingItemId/${clothingItemId}`, {
+  fetch(`http://localhost:3000/clothing_items/${clothingItemId}`, {
       method: "DELETE",
     })
       .then((r) => r.json())
@@ -198,7 +219,11 @@ function handleNewClothingItemSubmit(e) {
         <Route exact path="/" >
           <IntroPage 
           currentUser={currentUser}
-          setCurrentUser={setCurrentUser}/>
+          setCurrentUser={setCurrentUser}
+          handleLoginSubmit={handleLoginSubmit}
+          loginUsername={loginUsername}
+          setLoginUsername={setLoginUsername}
+          />
         </Route>
         <Route exact path="/home/:id">
           <HomePage 
@@ -206,8 +231,9 @@ function handleNewClothingItemSubmit(e) {
           setClosets={setClosets}
           newCloset={newCloset}
           setNewCloset={setNewCloset}
-          handleNewStorySubmit={handleNewStorySubmit}
-          handleClosetDelete={handleClosetDelete}/>
+          handleNewClosetSubmit={handleNewClosetSubmit}
+          handleClosetDelete={handleClosetDelete} 
+          />
         </Route>
         <Route exact path="/closet/:id">
           <ClosetPage

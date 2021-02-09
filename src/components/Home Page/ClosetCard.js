@@ -1,21 +1,23 @@
-import React, {useHistory} from "react"
+import React from "react"
+import { useHistory } from "react-router-dom";
 
 //buttons appear upon hover?
 function ClosetCard({closet, handleClosetDelete}) {
+const {id, name} = closet;
 let history = useHistory();
 
 function handleViewCloset(closet) {
     history.push(`/closet/${closet.id}`);
 }
-    const {id, name} = closet;
+
    return (
        <div className="closet-card">
            <h3>I am a closet </h3>
            {name}
            <div class="ui large buttons">
-                <button onClick={handleViewCloset} class="ui button view">view</button>
+                <button onClick={handleViewCloset} className="ui button view">view</button>
                 <div class="or"></div>
-                <button onClick={handleClosetDelete} class="ui button delete">delete</button>
+                <button onClick={handleClosetDelete} className="ui button delete">delete</button>
         </div>
        </div>
    )

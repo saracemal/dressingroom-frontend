@@ -1,9 +1,13 @@
-import React from "react"
+import React, {useState} from "react"
+// add bootstrap modal here
 
-function HeaderButtons() {
+function HeaderButtons({loginUsername, setLoginUsername}) {
+    const [showSignIn, setShowSignIn] = useState(false);
+    const handleShowSignIn = () => setShowSignIn(true);
+
     return (
         <div className="header-buttons">
-            <button>sign-up</button>
+            <button onClick={handleShowSignIn} className="sign-in-button">sign-in</button>
         </div>
     )
 }

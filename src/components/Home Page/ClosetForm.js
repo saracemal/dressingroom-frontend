@@ -1,10 +1,10 @@
 import React from "react"
 
-function ClosetForm({newCloset, setNewCloset, handleNewStorySubmit}) {
+function ClosetForm({newCloset, setNewCloset, handleNewClosetSubmit}) {
    return (
        <div className="new-closet-form">
            <h1>add new closet </h1>
-           <form onSubmit={handleNewStorySubmit}>
+           <form onSubmit={handleNewClosetSubmit}>
                 <input 
                     type="text"
                     name="name"

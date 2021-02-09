@@ -1,11 +1,11 @@
 import React from "react"
 import HeaderButtons from "./HeaderButtons"
 
-function Header() {
+function Header({loginUsername, setLoginUsername}) {
     return (
-        <div>
+        <div className="header">
             <h1 className="header-title">Dressing Room</h1>
-            <HeaderButtons />
+            <HeaderButtons loginUsername={loginUsername} setLoginUsername={setLoginUsername}/>
         </div>
     )
 }

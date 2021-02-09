@@ -5,10 +5,10 @@ import Details from "./Details"
 import FactCarousel from "./FactCarousel"
 
 
-function IntroPage() {
+function IntroPage({handleLoginSubmit, loginUsername, setLoginUsername}) {
     return (
-        <div>
-            <Header />
+        <div className="intro-container">
+            <Header handleLoginSubmit={handleLoginSubmit} loginUsername={loginUsername} setLoginUsername={setLoginUsername} />
             <SignUp />
             <Details />
             <FactCarousel />
