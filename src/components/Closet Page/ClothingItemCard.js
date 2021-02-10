@@ -10,6 +10,10 @@ function ClothingItemCard({clothingItem, handleClothingItemDelete}) {
     }
     
 
+    function handleDelete3() {
+        handleClothingItemDelete(id)
+    }
+
     const {id, brand, size, description, season, img_url} = clothingItem;
     return (
         <div>
@@ -24,7 +28,7 @@ function ClothingItemCard({clothingItem, handleClothingItemDelete}) {
             ) : (
                 <button onClick={handlePurchaseToggle} className="purchased-button">Purchased</button>
             )}
-            <button onClick={handleClothingItemDelete} className="ui button delete">Delete</button>
+            <button onClick={handleDelete3} className="ui button delete">Delete</button>
         </div>
     )
    

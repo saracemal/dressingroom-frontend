@@ -4,7 +4,7 @@ import MainHeaderButtons from "./MainHeaderButtons"
 function MainHeader() {
    return (
        <div>
-          <h3 className="main-header-title">I am the main header </h3>
+          <h3 className="main-header-title">Dressing Room  </h3>
            <MainHeaderButtons />
        </div>
    )

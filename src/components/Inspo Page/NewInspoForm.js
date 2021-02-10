@@ -1,6 +1,37 @@
-import React from "react"
+import React, {useState} from "react"
 
-function NewInspoForm({newInspoImg, setNewInspoImg, newInspoCaption, setNewInspoCaption, handleNewInspoSubmit}) {
+function NewInspoForm({currentUser, onAddInspo}) {
+const [newInspoImg, setNewInspoImg] = useState("")
+const [newInspoCaption, setNewInspoCaption] = useState("")
+
+    function handleNewInspoSubmit(e) {
+        e.preventDefault()
+      
+        const newInspoObj = {
+          user_id: currentUser,
+          img_url: newInspoImg, 
+          caption: newInspoCaption
+        }
+      
+          fetch("http://localhost:3000/inspos", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+             newInspoObj
+            })
+          })
+            .then((r) => r.json())
+            // .then((newInspo) => onAddInspo(newInspo))
+            // .then(data => console.log(data))
+            .then(resObj => {
+              setNewInspoImg(resObj.img_url)
+              setNewInspoCaption(resObj.caption)
+            
+            })
+      }
+
     return (
     <div className="new-inspo-form">
         <h1>new inspo!</h1>
@@ -9,14 +40,12 @@ function NewInspoForm({newInspoImg, setNewInspoImg, newInspoCaption, setNewInspo
                 <input 
                     type="text"
                     name="image"
-                    placeholder="image url"
                     value={newInspoImg}
                     onChange={(e) => setNewInspoImg(e.target.value)}/>
             <label hmtlfor="description">caption:</label> 
                 <input 
                     type="text"
                     name="caption"
-                    placeholder="caption"
                     value={newInspoCaption}
                     onChange={(e) => setNewInspoCaption(e.target.value)}/>
                 <button type="submit">add inspo ♻️ </button>

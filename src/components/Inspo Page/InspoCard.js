@@ -4,12 +4,16 @@ import React from "react"
 function InspoCard({inspo, handleInspoDelete}) {
     const {id, img_url, caption} = inspo;
 
+    function handleDelete() {
+        handleInspoDelete(id)
+    }
+
    return (
        <div className="inspo-card">
            <h3>I am an inspo card!</h3>
            <img src={img_url} alt={caption}/>
            <p>{caption}</p>
-           <button onClick={handleInspoDelete} className="ui button delete">🗑</button>
+           <button onClick={handleDelete} id={inspo.id} className="ui button delete" >🗑</button>
        </div>
    )
 }

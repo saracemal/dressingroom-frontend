@@ -10,6 +10,10 @@ function handleViewCloset(closet) {
     history.push(`/closet/${closet.id}`);
 }
 
+function handleDelete2() {
+    handleClosetDelete(id)
+}
+
    return (
        <div className="closet-card">
            <h3>I am a closet </h3>
@@ -17,7 +21,7 @@ function handleViewCloset(closet) {
            <div className="ui large buttons">
                 <button onClick={handleViewCloset} className="ui button view">view</button>
                 <div className="or"></div>
-                <button onClick={handleClosetDelete} className="ui button delete">delete</button>
+                <button onClick={handleDelete2} className="ui button delete">delete</button>
         </div>
        </div>
    )

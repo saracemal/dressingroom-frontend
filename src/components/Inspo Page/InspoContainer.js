@@ -2,6 +2,8 @@ import React from "react"
 import InspoCard from "./InspoCard"
 
 function InspoContainer({inspos, handleInspoDelete}) {
+
+
     const inspoCards = inspos.map((inspo) => (
         <InspoCard key={inspo.id} inspo={inspo} handleInspoDelete={handleInspoDelete} />
     ))

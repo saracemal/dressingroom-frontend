@@ -27,9 +27,9 @@ function App() {
   const [newCloset, setNewCloset] = useState("")
   const [newClosetName, setNewClosetName] = useState("")
 
-  const [newInspo, setNewInspo] = useState("")
-  const [newInspoImg, setNewInspoImg] = useState("")
-  const [newInspoCaption, setNewInspoCaption] = useState("")
+  // const [newInspo, setNewInspo] = useState("")
+  // const [newInspoImg, setNewInspoImg] = useState("")
+  // const [newInspoCaption, setNewInspoCaption] = useState("")
 
   const [newBrand, setNewBrand] = useState("")
   const [newSize, setNewSize] = useState("")
@@ -135,10 +135,11 @@ function App() {
       })
     })
       .then((r) => r.json())
-      .then(resObj => {
-        setNewClosetName(resObj.name)
-        history.push(`/closet/${resObj.id}`)
-      })
+      .then(data => console.log(data))
+      // .then(resObj => {
+      //   setNewClosetName(resObj.name)
+      //   history.push(`/closet/${resObj.id}`)
+      // })
   }
 
 
@@ -168,6 +169,7 @@ function handleInspoDelete(id) {
     })
       .then((r) => r.json())
       .then((deletedInspo) => {
+        console.log(deletedInspo)
         const updatedInspoArray = userInspos.filter(
           (inspo) => inspo.id !== deletedInspo.id
         )
@@ -175,32 +177,37 @@ function handleInspoDelete(id) {
       })
 }
 
-function handleAddInspo(newInspo) {
-  const updatedInsposArray = [...inspos, newInspo];
-  setInspos(updatedInsposArray)
-}
+// function handleAddInspo(newInspo) {
+//   const updatedInsposArray = [...inspos, newInspo];
+//   setInspos(updatedInsposArray)
+// }
 
-function handleNewInspoSubmit(e) {
-  e.preventDefault()
-    fetch("http://localhost:3000/inspos", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        user_id: currentUser,
-        img_url: newInspoImg,
-        caption: newInspoCaption
-      })
-    })
-      .then((r) => r.json())
-      .then(data => console.log(data))
-      .then(resObj => {
-        setNewInspoImg(resObj.img_url)
-        setNewInspoCaption(resObj.caption)
+// function handleNewInspoSubmit(e) {
+//   e.preventDefault()
+
+//   const newInspoObj = {
+//     user_id: currentUser,
+//     img_url: newInspoImg, 
+//     caption: newInspoCaption
+//   }
+
+//     fetch("http://localhost:3000/inspos", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify({
+//        newInspoObj
+//       })
+//     })
+//       .then((r) => r.json())
+//       // .then(data => console.log(data))
+//       .then(resObj => {
+//         setNewInspoImg(resObj.img_url)
+//         setNewInspoCaption(resObj.caption)
       
-      })
-}
+//       })
+// }
 
 // CLOTHING ITEM HANDLERS
 
@@ -294,14 +301,11 @@ function handleNewClothingItemSubmit(e) {
         </Route>
         <Route exact path="/inspo">
           <InspoPage 
+          currentUser={currentUser}
           inspos={inspos}
           setInspos={setInspos}
           handleInspoDelete={handleInspoDelete}
-          newInspoImg={newInspoImg}
-          setNewInspoImg={setNewInspoImg}
-          newInspoCaption={newInspoCaption}
-          setNewInspoCaption={setNewInspoCaption}
-          handleNewInspoSubmit={handleNewInspoSubmit}/>
+          />
         </Route>
       </Switch>
     </div>
