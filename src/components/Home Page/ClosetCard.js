@@ -14,9 +14,9 @@ function handleViewCloset(closet) {
        <div className="closet-card">
            <h3>I am a closet </h3>
            {name}
-           <div class="ui large buttons">
+           <div className="ui large buttons">
                 <button onClick={handleViewCloset} className="ui button view">view</button>
-                <div class="or"></div>
+                <div className="or"></div>
                 <button onClick={handleClosetDelete} className="ui button delete">delete</button>
         </div>
        </div>

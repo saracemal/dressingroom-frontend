@@ -11,7 +11,7 @@ function ClosetForm({newCloset, setNewCloset, handleNewClosetSubmit}) {
                     placeholder="title"
                     value={newCloset}
                     onChange={(e) => setNewCloset(e.target.value)}/>
-            <input type="submit" value="add" />
+            <button type="submit">add closet</button>
            </form>
        </div>
    )

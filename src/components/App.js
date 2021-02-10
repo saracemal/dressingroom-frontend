@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Route, Switch, useHistory, useParams } from "react-router-dom";
+import { Route, Switch, useHistory, Redirect } from "react-router-dom";
 import IntroPage from "./Intro Page/IntroPage"
 import HomePage from "./Home Page/HomePage"
 import ClosetPage from "./Closet Page/ClosetPage"
@@ -7,18 +7,11 @@ import InspoPage from "./Inspo Page/InspoPage"
 import '../App.css';
 
 function App() {
-  const params = useParams();
-  let history = useHistory()
-
   // login states
   const [currentUser, setCurrentUser] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [loginUsername, setLoginUsername] = useState("")
-  // const [userClosets, setUserClosets] = useState([])
-  // const [userInspos, setUserInspos] = useState([])
-
-  //
-  // const [currentUserCloset, setCurrentUserCloset] = useState()
+  const [newUserName, setNewUserName] = useState("")
 
   // model states
   const [users, setUsers] = useState([])
@@ -44,15 +37,20 @@ function App() {
   const [newSeason, setNewSeason] = useState("")
   const [newImgUrl, setNewImgUrl] = useState("")
 
+  let history = useHistory();
+
 
   // USER FETCH
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/users")
-  //   .then((r) => r.json())
-  //   .then(setUsers)
-  // }, [])
+  useEffect(() => {
+    fetch("http://localhost:3000/users")
+    .then((r) => r.json())
+    .then(setUsers)
+  }, [])
 
-  function handleLoginSubmit() {
+  //LOGIN AND CREATE ACCT FUNCTIONS
+  function handleLoginSubmit(e) {
+    e.preventDefault()
+
     fetch("http://localhost:3000/users")
       .then((r) => r.json())
       .then(userArr => {
@@ -62,8 +60,28 @@ function App() {
               setCurrentUser(user)
               setUserClosets(user.closets)
               setUserInspos(user.inspos)
+              history.push(`/home/${user.id}`)
           }
         })
+      })
+  }
+
+  function handleCreateAccountSubmit() {
+    fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: newUserName
+      })
+    })
+      .then((r) => r.json())
+      .then(newUser => {
+        setCurrentUser(newUser)
+        setIsLoggedIn(true)
+        setUserClosets(newUser.closets)
+        setUserInspos(newUser.inspos)
       })
   }
 
@@ -91,17 +109,17 @@ function App() {
 
   //login fetches
     //
-  useEffect(() => {
-    fetch("http://localhost:3000/autologin")
-      .then((r) => r.json())
-      .then(setCurrentUser);
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/autologin")
+  //     .then((r) => r.json())
+  //     .then(setCurrentUser);
+  // }, []);
 
-  function handleLogin() {
-    fetch("http://localhost:3000/autologin")
-      .then((r) => r.json())
-      .then(setCurrentUser);
-  }
+  // function handleLogin() {
+  //   fetch("http://localhost:3000/autologin")
+  //     .then((r) => r.json())
+  //     .then(setCurrentUser);
+  // }
 
   //CLOSET HANDLERS
   function handleNewClosetSubmit(e) {
@@ -123,6 +141,7 @@ function App() {
       })
   }
 
+
   function handleClosetDelete(closetId) {
     fetch(`http://localhost:3000/closets/${closetId}`, {
       method: "DELETE",
@@ -137,6 +156,11 @@ function App() {
   }
 
 //INSPO HANDLERS
+// function handleDeletedInspo(id) {
+//   const remainingInspos = inspos.filter((inspo) => inspo.id !== id)
+//   setUserInspos(remainingInspos);
+// }
+
 function handleInspoDelete(id) {
   console.log(id)
     fetch(`http://localhost:3000/inspos/${id}`, {
@@ -149,6 +173,11 @@ function handleInspoDelete(id) {
         )
         setUserInspos(updatedInspoArray)
       })
+}
+
+function handleAddInspo(newInspo) {
+  const updatedInsposArray = [...inspos, newInspo];
+  setInspos(updatedInsposArray)
 }
 
 function handleNewInspoSubmit(e) {
@@ -165,9 +194,11 @@ function handleNewInspoSubmit(e) {
       })
     })
       .then((r) => r.json())
+      .then(data => console.log(data))
       .then(resObj => {
         setNewInspoImg(resObj.img_url)
         setNewInspoCaption(resObj.caption)
+      
       })
 }
 
@@ -216,17 +247,25 @@ function handleNewClothingItemSubmit(e) {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" >
-          <IntroPage 
-          currentUser={currentUser}
-          setCurrentUser={setCurrentUser}
-          handleLoginSubmit={handleLoginSubmit}
-          loginUsername={loginUsername}
-          setLoginUsername={setLoginUsername}
-          />
+        <Route exact path="/">
+          {!isLoggedIn ? (
+            <IntroPage 
+            currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
+            handleLoginSubmit={handleLoginSubmit}
+            loginUsername={loginUsername}
+            setLoginUsername={setLoginUsername}
+            newUserName={newUserName}
+            setNewUserName={setNewUserName}
+            handleCreateAccountSubmit={handleCreateAccountSubmit}
+            />
+          ) : (
+            <Redirect to="/home/:id" />
+            )}
         </Route>
         <Route exact path="/home/:id">
           <HomePage 
+          currentUser={currentUser}
           closets={closets}
           setClosets={setClosets}
           newCloset={newCloset}
