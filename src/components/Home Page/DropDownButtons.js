@@ -1,7 +1,7 @@
-import { Dropdown } from "bootstrap"
+// import { Dropdown } from "bootstrap"
 import React from "react"
 import DropdownButton from 'react-bootstrap/DropdownButton'
-// import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 function DropDownButtons() {
     return (

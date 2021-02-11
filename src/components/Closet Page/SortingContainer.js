@@ -10,10 +10,10 @@ function handleSearchSubmit(e) {
 }
     return (
         <div className="clothingitem-search-and-sort">
-            <h1>sorting/sorting section</h1>
+            <h1>seach/sorting section</h1>
             <div className="clothingitem-sort">
-            <button onClick={() => setSortBy('id')}>Sort by Default</button>
-            <button onClick={() => setSortBy('brand')}>Sort by Brand </button>
+            <button className="id-btn" onClick={() => setSortBy('id')}>Sort by Default</button>
+            <button className="brand-btn" onClick={() => setSortBy('brand')}>Sort by Brand </button>
             </div>
             <div className="clothingitem-search">
             <form className="searchbar" onSubmit={handleSearchSubmit}>
@@ -24,7 +24,7 @@ function handleSearchSubmit(e) {
                     value={searchedClothingItems}
                     onChange={(e) => setSearchedClothingItems(e.target.value)}
                 />
-                <button type="submit">🔍</button>
+                <button type="submit" className="search-btn">🔍</button>
             </form>
             </div>
         </div>

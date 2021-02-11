@@ -76,6 +76,7 @@
 /* HOME PAGE CSS */
 .main-header {
   grid-area: 1 / 1 / 2 / 6;
+  background-color: olive;
 }
 
 .home-container {
@@ -106,25 +107,6 @@
 .new-closet-form {
   grid-area: 3 / 1 / 4 / 4; 
 }
-
-.parent {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  }
-  
-  .div1 { grid-area: 1 / 1 / 2 / 6; }
-  .div2 { grid-area: 2 / 1 / 3 / 4; }
-  .div3 { grid-area: 3 / 1 / 4 / 4; }
-  .div4 { grid-area: 2 / 4 / 4 / 6; }
-
-  
-  
-
-
-
 
 
 
@@ -189,10 +171,183 @@
   text-decoration: none;
 }
 
+.new-inspo-btn {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: darkolivegreen;
+  border-style: none;
+}
 
+.new-inspo-btn:hover {
+  background: #e3d0f2;
+  text-decoration: none;
+}
 
+.new-closet-btn {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
 
+.new-closet-btn:hover {
+  background: #e3d0f2;
+  text-decoration: none;
+}
 
+.ui-button-view {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+.ui-button-view:hover {
+  background: #e3d0f2;
+  text-decoration: none;
+}
+
+.ui-button-delete {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+.ui-button-delete:hover {
+  background: red;
+  text-decoration: none;
+}
+
+.enter-btn {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+.enter-btn:hover {
+  background: green;
+  text-decoration: none;
+}
+
+.profile-btn {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+.profile-btn:hover{
+  background: orange;
+  text-decoration: none;
+}
+
+.new-item {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+.new-item:hover {
+  background: #e3d0f2;
+  text-decoration: none;
+}
+
+.search-btn {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+.search-btn:hover {
+  background: #0509eb;
+  text-decoration: none;
+}
+
+.id-btn {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+.id-btn:hover {
+  background-color:teal;
+  text-decoration: none;
+}
+
+.brand-btn {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+.brand-btn:hover {
+  background-color:teal;
+  text-decoration: none;
+}
+
+.not-purchased-button {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background-color:rgb(255, 0, 55);
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+/* .not-purchased-btn:hover {
+
+} */
+
+.purchased-button {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background-color:rgb(35, 121, 32);
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+/* .purchased-btn:hover {
+
+} */
 
 /* INSPO PAGE CSS */
 img {

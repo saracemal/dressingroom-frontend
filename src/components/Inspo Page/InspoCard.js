@@ -13,7 +13,7 @@ function InspoCard({inspo, handleInspoDelete}) {
            <h3>I am an inspo card!</h3>
            <img src={img_url} alt={caption}/>
            <p>{caption}</p>
-           <button onClick={handleDelete} id={inspo.id} className="ui button delete" >🗑</button>
+           <button onClick={handleDelete} id={inspo.id} className="ui-button-delete">🗑</button>
        </div>
    )
 }

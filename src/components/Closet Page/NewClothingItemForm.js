@@ -52,7 +52,7 @@ function NewClothingItemForm({
                     placeholder="image url"
                     value={newImgUrl}
                     onChange={(e) => setNewImgUrl(e.target.value)}/>
-                <button type="submit">add new item</button>
+                <button type="submit" className="new-item">✨ add new item ✨</button>
            </form>
        </div>
    )

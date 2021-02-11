@@ -28,7 +28,7 @@ function ClothingItemCard({clothingItem, handleClothingItemDelete}) {
             ) : (
                 <button onClick={handlePurchaseToggle} className="purchased-button">Purchased</button>
             )}
-            <button onClick={handleDelete3} className="ui button delete">Delete</button>
+            <button onClick={handleDelete3} className="ui-button-delete">Delete</button>
         </div>
     )
    

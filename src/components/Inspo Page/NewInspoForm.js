@@ -48,7 +48,7 @@ const [newInspoCaption, setNewInspoCaption] = useState("")
                     name="caption"
                     value={newInspoCaption}
                     onChange={(e) => setNewInspoCaption(e.target.value)}/>
-                <button type="submit">add inspo ♻️ </button>
+                <button className="new-inspo-btn" type="submit">add inspo ♻️ </button>
            </form>
     </div>
     )

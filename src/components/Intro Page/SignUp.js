@@ -16,7 +16,7 @@ function SignUp({newUserName, setNewUserName, handleLoginSubmit, handleCreateAcc
                         value={loginUsername}
                         onChange={(e) => setLoginUsername(e.target.value)}
                     />
-                    <button type="submit">enter</button>
+                    <button type="submit" className="enter-btn">enter</button>
                     </form>
            </div>
             <div className="sign-up">
@@ -30,7 +30,7 @@ function SignUp({newUserName, setNewUserName, handleLoginSubmit, handleCreateAcc
                         value={newUserName}
                         onChange={(e) => setNewUserName(e.target.value)}
                     />
-                    <button type="submit">create profile ♻️</button>
+                    <button type="submit" className="profile-btn">create profile ♻️</button>
                 </form>
             </div>
         </div>

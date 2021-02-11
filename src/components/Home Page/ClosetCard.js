@@ -19,9 +19,9 @@ function handleDelete2() {
            <h3>I am a closet </h3>
            {name}
            <div className="ui large buttons">
-                <button onClick={handleViewCloset} className="ui button view">view</button>
+                <button onClick={handleViewCloset} className="ui-button-view">view</button>
                 <div className="or"></div>
-                <button onClick={handleDelete2} className="ui button delete">delete</button>
+                <button onClick={handleDelete2} className="ui-button-delete">delete</button>
         </div>
        </div>
    )

@@ -60,7 +60,7 @@ function App() {
               setCurrentUser(user)
               setUserClosets(user.closets)
               setUserInspos(user.inspos)
-              history.push(`/home/${user.id}`)
+              // history.push(`/home/${user.id}`)
           }
         })
       })
@@ -268,10 +268,10 @@ function handleNewClothingItemSubmit(e) {
             handleCreateAccountSubmit={handleCreateAccountSubmit}
             />
           ) : (
-            <Redirect to="/home/:id" />
+            <Redirect to="/home" />
             )}
         </Route>
-        <Route exact path="/home/:id">
+        <Route exact path="/home">
           <HomePage 
           currentUser={currentUser}
           closets={closets}
