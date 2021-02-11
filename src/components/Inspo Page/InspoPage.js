@@ -10,7 +10,7 @@ function InspoPage({currentUser, inspos, setInspos, handleInspoDelete}) {
       }
 
     return (
-        <div>
+        <div className="inspo-container">
             <MainHeader />
             <InspoContainer currentUser={currentUser} inspos={inspos} handleInspoDelete={handleInspoDelete} />
             <NewInspoForm onAddInspo={handleAddInspo} currentUser={currentUser} />

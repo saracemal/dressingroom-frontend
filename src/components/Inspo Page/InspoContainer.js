@@ -8,7 +8,7 @@ function InspoContainer({inspos, handleInspoDelete}) {
         <InspoCard key={inspo.id} inspo={inspo} handleInspoDelete={handleInspoDelete} />
     ))
     return (
-    <div className="inspo-container">
+    <div className="inspo-container-2">
         <h1>All the inspoooo</h1>
         {inspoCards}
     </div>

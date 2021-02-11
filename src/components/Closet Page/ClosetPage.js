@@ -35,7 +35,7 @@ const sortedClothingItems = filteredClothingItems.sort((clothingItemA, clothingI
 })
     
     return (
-        <div>
+        <div className="closet-container">
             <MainHeader />
             <ClothingItemContainer 
             clothingItems={sortedClothingItems} 

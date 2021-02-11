@@ -66,7 +66,8 @@ function App() {
       })
   }
 
-  function handleCreateAccountSubmit() {
+  function handleCreateAccountSubmit(e) {
+    e.preventDefault()
     fetch("http://localhost:3000/users", {
         method: "POST",
         headers: {

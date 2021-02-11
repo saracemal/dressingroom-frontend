@@ -6,7 +6,7 @@ import DropDownButtons from "./DropDownButtons"
 
 function HomePage({closets, newCloset, setNewCloset, handleClosetDelete, handleNewClosetSubmit, currentUser}) {
     return (
-        <div>
+        <div className="home-container">
             <MainHeader />
             <DropDownButtons />
             <ClosetContainer currentUser={currentUser} closets={closets} handleClosetDelete={handleClosetDelete}/>

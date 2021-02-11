@@ -1,11 +1,13 @@
 import React from "react"
-import MainHeaderButtons from "./MainHeaderButtons"
 
 function MainHeader() {
    return (
-       <div>
+       <div className="main-header">
           <h3 className="main-header-title">Dressing Room  </h3>
-           <MainHeaderButtons />
+          <div className="main-header-buttons">
+            <button className="home-button">🏡</button>
+            <button className="inspo-button">💡</button>
+        </div>  
        </div>
    )
 }

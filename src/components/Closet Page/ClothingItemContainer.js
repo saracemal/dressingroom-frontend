@@ -18,7 +18,7 @@ function ClothingItemContainer({clothingItems, handleClothingItemDelete}) {
     //     <ClothingItemCard key={clothingItem.id} clothingItem={clothingItem} handleClothingItemDelete={handleClothingItemDelete}/>
     // ))
     return (
-        <div>
+        <div className="clothing-container">
             <h1>I am the clothingitem container</h1>
             {clothingItemCards}
         </div>
