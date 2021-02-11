@@ -2,7 +2,7 @@ import React, {useState} from "react"
 
 // complete toggle function!! 
 //create small button for delete, maybe a trash can or something?? 
-function ClothingItemCard({clothingItem, handleClothingItemDelete}) {
+function ClothingItemCard({clothingItem, onDeleteClothing}) {
     const [purchaseToggle, setPurchaseToggle] = useState(true)
 
     function handlePurchaseToggle() {
@@ -10,9 +10,12 @@ function ClothingItemCard({clothingItem, handleClothingItemDelete}) {
     }
     
 
-    function handleDelete3() {
-        handleClothingItemDelete(id)
-    }
+    function handleClothingItemDelete() {
+        fetch(`http://localhost:3000/clothing_items/${id}`, {
+            method: "DELETE",
+          })
+          onDeleteClothing(id)
+      }
 
     const {id, brand, size, description, season, img_url} = clothingItem;
     return (
@@ -28,7 +31,7 @@ function ClothingItemCard({clothingItem, handleClothingItemDelete}) {
             ) : (
                 <button onClick={handlePurchaseToggle} className="purchased-button">Purchased</button>
             )}
-            <button onClick={handleDelete3} className="ui-button-delete">Delete</button>
+            <button onClick={handleClothingItemDelete} className="ui-button-delete">Delete</button>
         </div>
     )
    

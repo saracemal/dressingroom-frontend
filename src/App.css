@@ -144,7 +144,7 @@
 .home-button {
   -webkit-border-radius: 60;
   -moz-border-radius: 60;
-  border-radius: 60px;
+  border-radius: 100px;
   background: #ffffff;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
@@ -159,7 +159,7 @@
 .inspo-button {
   -webkit-border-radius: 60;
   -moz-border-radius: 60;
-  border-radius: 60px;
+  border-radius: 100px;
   background: #ffffff;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
@@ -329,6 +329,21 @@
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   border-style: none;
+}
+
+.logout-button {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border-style: none;
+}
+
+.logout-button:hover {
+  background-color:red;
+  text-decoration: none;
 }
 
 /* .not-purchased-btn:hover {

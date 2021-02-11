@@ -3,12 +3,12 @@ import ClothingItemCard from "./ClothingItemCard"
 
 //if clothing items === null, return "no clothes yet! let's add some."
 // or display clothing item cards
-function ClothingItemContainer({clothingItems, handleClothingItemDelete}) {
+function ClothingItemContainer({clothingItems, onDeleteClothing}) {
 
     let clothingItemCards
     if (clothingItems) {
         clothingItemCards = clothingItems.map((clothingItem) => (
-            <ClothingItemCard key={clothingItem.id} clothingItem={clothingItem} handleClothingItemDelete={handleClothingItemDelete}/>
+            <ClothingItemCard key={clothingItem.id} clothingItem={clothingItem} onDeleteClothing={onDeleteClothing}/>
         ))
     } else {
         clothingItemCards = <p className="clothing-item-p"> No clothing to display. Let's add some! </p>

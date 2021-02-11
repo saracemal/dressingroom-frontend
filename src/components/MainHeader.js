@@ -12,6 +12,9 @@ function MainHeader() {
             <Link to="/inspo">
                 <button className="inspo-button">💡</button>
             </Link>
+            <Link to="/">
+                <button className="logout-button">LOGOUT</button>
+            </Link>
         </div>  
        </div>
    )

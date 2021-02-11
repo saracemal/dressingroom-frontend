@@ -5,19 +5,7 @@ import SortingContainer from "./SortingContainer"
 import MainHeader from "../MainHeader"
 import Disclaimer from "./Disclaimer"
 
-function ClosetPage({clothingItems, 
-    handleClothingItemDelete,
-    newBrand, 
-    setNewBrand, 
-    newSize, 
-    setNewSize, 
-    newDescription, 
-    setNewDescription, 
-    newSeason, 
-    setNewSeason, 
-    newImgUrl, 
-    setNewImgUrl,
-    handleNewClothingItemSubmit}) {
+function ClosetPage({clothingItems, onDeleteClothing, onAddClothing, currentUser}) {
 //sort by id, alphabetically, brand
 const [sortBy, setSortBy] = useState('id');
 const [searchedClothingItems, setSearchedClothingItems] = useState("")
@@ -39,20 +27,11 @@ const sortedClothingItems = filteredClothingItems.sort((clothingItemA, clothingI
             <MainHeader />
             <ClothingItemContainer 
             clothingItems={sortedClothingItems} 
-            handleClothingItemDelete={handleClothingItemDelete}
+            onDeleteClothing={onDeleteClothing}
             />
             <NewClothingItemForm
-            newBrand={newBrand}
-            setNewBrand={setNewBrand}
-            newSize={newSize}
-            setNewSize={setNewSize}
-            newDescription={newDescription}
-            setNewDescription={setNewDescription}
-            newSeason={newSeason}
-            setNewSeason={setNewSeason}
-            newImgUrl={newImgUrl}
-            setNewImgUrl={setNewImgUrl}
-            handleNewClothingItemSubmit={handleNewClothingItemSubmit} />
+            currentUser={currentUser}
+            onAddClothing={onAddClothing} />
             <SortingContainer onSearch={setSearchedClothingItems} />
             <Disclaimer />
         </div>

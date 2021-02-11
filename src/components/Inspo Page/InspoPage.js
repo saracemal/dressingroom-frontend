@@ -3,7 +3,7 @@ import InspoContainer from "./InspoContainer"
 import NewInspoForm from "./NewInspoForm"
 import MainHeader from "../MainHeader"
 
-function InspoPage({currentUser, inspos, setInspos, handleInspoDelete}) {
+function InspoPage({currentUser, inspos, setInspos, onDeleteInspo}) {
     function handleAddInspo(newInspo) {
         const updatedInsposArray = [...inspos, newInspo];
         setInspos(updatedInsposArray)
@@ -12,7 +12,7 @@ function InspoPage({currentUser, inspos, setInspos, handleInspoDelete}) {
     return (
         <div className="inspo-container">
             <MainHeader />
-            <InspoContainer currentUser={currentUser} inspos={inspos} handleInspoDelete={handleInspoDelete} />
+            <InspoContainer currentUser={currentUser} inspos={inspos} onDeleteInspo={onDeleteInspo} />
             <NewInspoForm onAddInspo={handleAddInspo} currentUser={currentUser} />
         </div>
     )

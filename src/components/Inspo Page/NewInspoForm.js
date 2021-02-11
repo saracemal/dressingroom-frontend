@@ -6,30 +6,30 @@ const [newInspoCaption, setNewInspoCaption] = useState("")
 
     function handleNewInspoSubmit(e) {
         e.preventDefault()
-      
-        const newInspoObj = {
-          user_id: currentUser,
-          img_url: newInspoImg, 
-          caption: newInspoCaption
-        }
-      
+        // const newInspoObj = {
+        //   user_id: currentUser.id,
+        //   img_url: newInspoImg, 
+        //   caption: newInspoCaption
+        // }
           fetch("http://localhost:3000/inspos", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-             newInspoObj
+              // user_id: currentUser,
+              img_url: newInspoImg, 
+              caption: newInspoCaption
             })
           })
             .then((r) => r.json())
-            // .then((newInspo) => onAddInspo(newInspo))
-            // .then(data => console.log(data))
-            .then(resObj => {
-              setNewInspoImg(resObj.img_url)
-              setNewInspoCaption(resObj.caption)
+            .then((newInspo) => onAddInspo(newInspo))
+            .then(data => console.log(data))
+            // .then(resObj => {
+            //   setNewInspoImg(resObj.img_url)
+            //   setNewInspoCaption(resObj.caption)
             
-            })
+            // })
       }
 
     return (

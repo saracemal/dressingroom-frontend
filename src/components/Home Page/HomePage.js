@@ -4,13 +4,13 @@ import ClosetContainer from "./ClosetContainer"
 import ClosetForm from "./ClosetForm"
 import DropDownButtons from "./DropDownButtons"
 
-function HomePage({closets, newCloset, setNewCloset, handleClosetDelete, handleNewClosetSubmit, currentUser}) {
+function HomePage({closets, onDeleteCloset, onAddCloset, currentUser}) {
     return (
         <div className="home-container">
             <MainHeader />
             <DropDownButtons />
-            <ClosetContainer currentUser={currentUser} closets={closets} handleClosetDelete={handleClosetDelete}/>
-            <ClosetForm currentUser={currentUser} newCloset={newCloset} setNewCloset={setNewCloset} handleNewClosetSubmit={handleNewClosetSubmit}/>
+            <ClosetContainer currentUser={currentUser} closets={closets} onDeleteCloset={onDeleteCloset}/>
+            <ClosetForm currentUser={currentUser} onAddCloset={onAddCloset} />
         </div>
     )
 }

@@ -1,17 +1,38 @@
-import React from "react"
+import React, {useState} from "react"
 
-function NewClothingItemForm({
-    newBrand,
-    setNewBrand,
-    newSize,
-    setNewSize,
-    newDescription,
-    setNewDescription,
-    newSeason,
-    setNewSeason,
-    newImgUrl,
-    setNewImgUrl,
-    handleNewClothingItemSubmit}) {
+function NewClothingItemForm({currentUser, onAddClothing}) {
+const [newBrand, setNewBrand] = useState("")
+const [newSize, setNewSize] = useState("")
+const [newDescription, setNewDescription] = useState("")
+const [newSeason, setNewSeason] = useState("")
+const [newImgUrl, setNewImgUrl] = useState("")
+// const [purchased, setPurchased] = useState(true)
+
+function handleNewClothingItemSubmit(e) {
+    e.preventDefault()
+    fetch("http://localhost:3000/clothing_items", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: currentUser.id,
+        brand: newBrand,
+        size: newSize,
+        description: newDescription, 
+        season: newSeason,
+        img_url: newImgUrl
+      })
+    })
+      .then((r) => r.json())
+      .then((newClothingItem) => onAddClothing(newClothingItem))
+    //   .then(resObj => {
+    //     setNewBrand(resObj.brand)
+    //     setNewSize(resObj.size)
+    //     setNewDescription(resObj.description)
+    //     setNewSeason(resObj.season)
+    //     setNewImgUrl(resObj.img_url)
+  }
     
    return (
        <div className="new-clothingitem-form">

@@ -24,18 +24,11 @@ function App() {
   const [userInspos, setUserInspos] = useState([])
   const [userClothingItems, setUserClothingItems] = useState([])
 
-  const [newCloset, setNewCloset] = useState("")
-  const [newClosetName, setNewClosetName] = useState("")
 
   // const [newInspo, setNewInspo] = useState("")
   // const [newInspoImg, setNewInspoImg] = useState("")
   // const [newInspoCaption, setNewInspoCaption] = useState("")
 
-  const [newBrand, setNewBrand] = useState("")
-  const [newSize, setNewSize] = useState("")
-  const [newDescription, setNewDescription] = useState("")
-  const [newSeason, setNewSeason] = useState("")
-  const [newImgUrl, setNewImgUrl] = useState("")
 
   let history = useHistory();
 
@@ -122,66 +115,46 @@ function App() {
   //     .then(setCurrentUser);
   // }
 
+
+  
   //CLOSET HANDLERS
-  function handleNewClosetSubmit(e) {
-    e.preventDefault()
-    fetch("http://localhost:3000/closets", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        user_id: currentUser,
-        name: newClosetName
-      })
-    })
-      .then((r) => r.json())
-      .then(data => console.log(data))
-      // .then(resObj => {
-      //   setNewClosetName(resObj.name)
-      //   history.push(`/closet/${resObj.id}`)
-      // })
+  function handleAddCloset(newCloset) {
+    const updatedClosetArray = [...closets, newCloset];
+    setClosets(updatedClosetArray)
+  }
+
+  function handleDeleteCloset(id) {
+    const remainingClosets = closets.filter((closet) => closet.id !== id)
+    setClosets(remainingClosets);
   }
 
 
-  function handleClosetDelete(closetId) {
-    fetch(`http://localhost:3000/closets/${closetId}`, {
-      method: "DELETE",
-    })
-      .then((r) => r.json())
-      .then((deletedCloset) => {
-        const updatedClosetsArray = userClosets.filter(
-          (closet) => closet.id !== deletedCloset.id
-        )
-        setUserClosets(updatedClosetsArray)
-      })
-  }
+  // function handleClosetDelete(closetId) {
+  //   fetch(`http://localhost:3000/closets/${closetId}`, {
+  //     method: "DELETE",
+  //   })
+  //     .then((r) => r.json())
+  //     .then((deletedCloset) => {
+  //       const updatedClosetsArray = userClosets.filter(
+  //         (closet) => closet.id !== deletedCloset.id
+  //       )
+  //       setUserClosets(updatedClosetsArray)
+  //     })
+  // }
 
 //INSPO HANDLERS
-// function handleDeletedInspo(id) {
-//   const remainingInspos = inspos.filter((inspo) => inspo.id !== id)
-//   setUserInspos(remainingInspos);
-// }
-
-function handleInspoDelete(id) {
-  console.log(id)
-    fetch(`http://localhost:3000/inspos/${id}`, {
-      method: "DELETE",
-    })
-      .then((r) => r.json())
-      .then((deletedInspo) => {
-        console.log(deletedInspo)
-        const updatedInspoArray = userInspos.filter(
-          (inspo) => inspo.id !== deletedInspo.id
-        )
-        setUserInspos(updatedInspoArray)
-      })
+function handleDeletedInspo(id) {
+  const remainingInspos = inspos.filter((inspo) => inspo.id !== id)
+  setInspos(remainingInspos);
 }
+
 
 // function handleAddInspo(newInspo) {
 //   const updatedInsposArray = [...inspos, newInspo];
 //   setInspos(updatedInsposArray)
 // }
+
+
 
 // function handleNewInspoSubmit(e) {
 //   e.preventDefault()
@@ -211,46 +184,16 @@ function handleInspoDelete(id) {
 // }
 
 // CLOTHING ITEM HANDLERS
-
-function handleClothingItemDelete(clothingItemId) {
-  fetch(`http://localhost:3000/clothing_items/${clothingItemId}`, {
-      method: "DELETE",
-    })
-      .then((r) => r.json())
-      .then((deletedClothingItem) => {
-        const updatedClothingItemArray = userClothingItems.filter(
-          (clothingItem) => clothingItem.id !== deletedClothingItem.id
-        )
-        setUserClothingItems(updatedClothingItemArray)
-      })
+function handleAddClothingItem(newClothingItem) {
+  const updatedClothingArray = [newClothingItem, ...clothingItems];
+  setClothingItems(updatedClothingArray)
 }
 
-function handleNewClothingItemSubmit(e) {
-  e.preventDefault()
-  fetch("http://localhost:3000/clothing_items", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      user_id: currentUser,
-      brand: newBrand,
-      size: newSize,
-      description: newDescription, 
-      season: newSeason,
-      img_url: newImgUrl
-    })
-  })
-    .then((r) => r.json())
-    .then(resObj => {
-      setNewBrand(resObj.brand)
-      setNewSize(resObj.size)
-      setNewDescription(resObj.description)
-      setNewSeason(resObj.season)
-      setNewImgUrl(resObj.img_url)
-    })
-
+function handleDeleteClothingItem(id) {
+  const remainingClothing = clothingItems.filter((clothingItem) => clothingItem.id !== id)
+  setClothingItems(remainingClothing);
 }
+
 
   return (
     <div className="App">
@@ -276,28 +219,18 @@ function handleNewClothingItemSubmit(e) {
           currentUser={currentUser}
           closets={closets}
           setClosets={setClosets}
-          newCloset={newCloset}
-          setNewCloset={setNewCloset}
-          handleNewClosetSubmit={handleNewClosetSubmit}
-          handleClosetDelete={handleClosetDelete} 
+          onDeleteCloset={handleDeleteCloset}
+          onAddCloset={handleAddCloset}
+          // handleClosetDelete={handleClosetDelete} 
           />
         </Route>
         <Route exact path="/closet/:id">
           <ClosetPage
+          currentUser={currentUser}
+          onDeleteClothing={handleDeleteClothingItem}
+          onAddClothing={handleAddClothingItem}
           clothingItems={clothingItems}
           setClothingItems={setClothingItems}
-          handleClothingItemDelete={handleClothingItemDelete}
-          newBrand={newBrand}
-          setNewBrand={setNewBrand}
-          newSize={newSize}
-          setNewSize={setNewSize}
-          newDescription={newDescription}
-          setNewDescription={setNewDescription}
-          newSeason={newSeason}
-          setNewSeason={setNewSeason}
-          newImgUrl={newImgUrl}
-          setNewImgUrl={setNewImgUrl}
-          handleNewClothingItemSubmit={handleNewClothingItemSubmit}
            />
         </Route>
         <Route exact path="/inspo">
@@ -305,7 +238,7 @@ function handleNewClothingItemSubmit(e) {
           currentUser={currentUser}
           inspos={inspos}
           setInspos={setInspos}
-          handleInspoDelete={handleInspoDelete}
+          onDeleteInspo={handleDeletedInspo}
           />
         </Route>
       </Switch>
