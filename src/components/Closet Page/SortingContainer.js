@@ -1,13 +1,15 @@
 import React, {useState} from "react"
 
-function SortingContainer({onSearch}) {
+function SortingContainer({onSearchChange, searchedClothingItems}) {
 const [sortBy, setSortBy] = useState('id');
-const [searchedClothingItems, setSearchedClothingItems] = useState("")
+// const [searchedClothingItems, setSearchedClothingItems] = useState("")
 
-function handleSearchSubmit(e) {
-    e.preventDefault();
-    onSearch(searchedClothingItems)
-}
+// function handleSearchSubmit(e) {
+//     e.preventDefault();
+//     onSearchChange(searchedClothingItems)
+// }
+
+// onSubmit={handleSearchSubmit}
     return (
         <div className="clothingitem-search-and-sort">
             <h1>seach/sorting section</h1>
@@ -16,13 +18,15 @@ function handleSearchSubmit(e) {
             <button className="brand-btn" onClick={() => setSortBy('brand')}>Sort by Brand </button>
             </div>
             <div className="clothingitem-search">
-            <form className="searchbar" onSubmit={handleSearchSubmit}>
+            
+            <label htmlFor="search">Looking for something? 👀</label>
+            <form className="searchbar">
                 <input
                     type="text"
                     id="search"
-                    placeholder="search clothing"
+                    placeholder="Search clothing..."
                     value={searchedClothingItems}
-                    onChange={(e) => setSearchedClothingItems(e.target.value)}
+                    onChange={(e) => onSearchChange(e.target.value)}
                 />
                 <button type="submit" className="search-btn">🔍</button>
             </form>

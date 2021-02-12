@@ -32,7 +32,7 @@ const sortedClothingItems = filteredClothingItems.sort((clothingItemA, clothingI
             <NewClothingItemForm
             currentUser={currentUser}
             onAddClothing={onAddClothing} />
-            <SortingContainer onSearch={setSearchedClothingItems} />
+            <SortingContainer onSearchChange={setSearchedClothingItems} />
             <Disclaimer />
         </div>
     )
