@@ -1,5 +1,6 @@
 import React from "react"
 import ClothingItemCard from "./ClothingItemCard"
+import styled from "styled-components"
 
 //if clothing items === null, return "no clothes yet! let's add some."
 // or display clothing item cards
@@ -18,12 +19,22 @@ function ClothingItemContainer({clothingItems, onDeleteClothing}) {
     //     <ClothingItemCard key={clothingItem.id} clothingItem={clothingItem} handleClothingItemDelete={handleClothingItemDelete}/>
     // ))
     return (
-        <div className="clothing-container">
-            <h1>I am the clothingitem container</h1>
+        <ClosetWrapper>
             {clothingItemCards}
-        </div>
+        </ClosetWrapper>
     )
    
 }
 
 export default ClothingItemContainer;
+const ClosetWrapper = styled.div`
+    // width: 80%;
+    display: flex;
+    flex-wrap: wrap;  
+    flex-direction: row;
+    text-align: center;
+`
+
+// const Title = styled.h1`
+// font-family: 'Lemon', serif;
+// `

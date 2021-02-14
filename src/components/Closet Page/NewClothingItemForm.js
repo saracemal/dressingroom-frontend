@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import styled from "styled-components"
 
 function NewClothingItemForm({currentUser, onAddClothing}) {
 const [newBrand, setNewBrand] = useState("")
@@ -36,37 +37,37 @@ function handleNewClothingItemSubmit(e) {
     
    return (
        <div className="new-clothingitem-form">
-           <h1>new clothing item form</h1>
+           <Title>🌱 closet addition 🌱</Title>
            <form onSubmit={handleNewClothingItemSubmit}>
-            <label hmtlfor="brand">brand:</label> 
+            <Inputs>brand:</Inputs> 
                 <input 
                     type="text"
                     name="brand"
                     placeholder="brand"
                     value={newBrand}
                     onChange={(e) => setNewBrand(e.target.value)}/>
-                <label hmtlfor="size">size:</label> 
+                <Inputs>size:</Inputs> 
                     <input 
                     type="number"
                     name="size"
                     placeholder="size"
                     value={newSize}
                     onChange={(e) => setNewSize(parseInt(e.target.value))}/>
-                <label hmtlfor="description">description:</label> 
+                <Inputs >description:</Inputs> 
                     <input 
                     type="text"
                     name="description"
                     placeholder="description"
                     value={newDescription}
                     onChange={(e) => setNewDescription(e.target.value)}/>
-                <label hmtlfor="description">season:</label> 
+                <Inputs >season:</Inputs> 
                     <input 
                     type="text"
                     name="season"
                     placeholder="season"
                     value={newSeason}
                     onChange={(e) => setNewSeason(e.target.value)}/>
-                <label hmtlfor="description">image</label> 
+                <Inputs >image: </Inputs> 
                     <input 
                     type="text"
                     name="image"
@@ -80,3 +81,11 @@ function handleNewClothingItemSubmit(e) {
 }
 
 export default NewClothingItemForm;
+
+const Inputs = styled.p`
+font-family: 'Anonymous Pro', monospace;
+`
+
+const Title = styled.h1`
+    font-family: 'Lemon', serif;
+`

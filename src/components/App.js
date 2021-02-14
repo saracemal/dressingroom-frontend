@@ -5,6 +5,7 @@ import HomePage from "./Home Page/HomePage"
 import ClosetPage from "./Closet Page/ClosetPage"
 import InspoPage from "./Inspo Page/InspoPage"
 import '../App.css';
+import styled from "styled-components";
 
 function App() {
   // login states
@@ -24,13 +25,7 @@ function App() {
   const [userInspos, setUserInspos] = useState([])
   const [userClothingItems, setUserClothingItems] = useState([])
 
-
-  // const [newInspo, setNewInspo] = useState("")
-  // const [newInspoImg, setNewInspoImg] = useState("")
-  // const [newInspoCaption, setNewInspoCaption] = useState("")
-
-
-  let history = useHistory();
+  // let history = useHistory();
 
 
   // USER FETCH
@@ -53,6 +48,7 @@ function App() {
               setCurrentUser(user)
               setUserClosets(user.closets)
               setUserInspos(user.inspos)
+              console.log(user.name)
               // history.push(`/home/${user.id}`)
           }
         })
@@ -196,7 +192,7 @@ function handleDeleteClothingItem(id) {
 
 
   return (
-    <div className="App">
+    <Wrapper>
       <Switch>
         <Route exact path="/">
           {!isLoggedIn ? (
@@ -242,8 +238,14 @@ function handleDeleteClothingItem(id) {
           />
         </Route>
       </Switch>
-    </div>
+    </Wrapper>
   );
 }
 
 export default App;
+
+const Wrapper = styled.div`
+    background-color: lavender;
+    height: 100vh;
+    width: 100vw;
+`

@@ -1,7 +1,8 @@
-import React, {useState} from "react"
+import React from "react"
+import styled from "styled-components"
+import { keyframes } from "styled-components"
 
 function SortingContainer({onSearchChange, searchedClothingItems}) {
-const [sortBy, setSortBy] = useState('id');
 // const [searchedClothingItems, setSearchedClothingItems] = useState("")
 
 // function handleSearchSubmit(e) {
@@ -9,17 +10,19 @@ const [sortBy, setSortBy] = useState('id');
 //     onSearchChange(searchedClothingItems)
 // }
 
+// const sortedClothingItems = filteredClothingItems.sort((clothingItemA, clothingItemB) => {
+//     if (sortBy === 'id') {
+//         return clothingItemA.id - clothingItemB.id;
+//     } else {
+//         return clothingItemA.brand.localeCompare(clothingItemB.brand)
+//     }
+// })
+
 // onSubmit={handleSearchSubmit}
     return (
-        <div className="clothingitem-search-and-sort">
-            <h1>seach/sorting section</h1>
-            <div className="clothingitem-sort">
-            <button className="id-btn" onClick={() => setSortBy('id')}>Sort by Default</button>
-            <button className="brand-btn" onClick={() => setSortBy('brand')}>Sort by Brand </button>
-            </div>
-            <div className="clothingitem-search">
+        <SearchWrapper>
             
-            <label htmlFor="search">Looking for something? 👀</label>
+            <Rotate>👀</Rotate>
             <form className="searchbar">
                 <input
                     type="text"
@@ -30,10 +33,31 @@ const [sortBy, setSortBy] = useState('id');
                 />
                 <button type="submit" className="search-btn">🔍</button>
             </form>
-            </div>
-        </div>
+        </SearchWrapper>
     )
    
 }
 
 export default SortingContainer;
+
+const SearchWrapper = styled.div`
+    text-align: center;
+`
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+// Here we create a component that will rotate everything we pass in over two seconds
+const Rotate = styled.div`
+  display: inline-block;
+  animation: ${rotate} 2s linear infinite;
+  padding: 2rem 1rem;
+  font-size: 1.2rem;
+`;

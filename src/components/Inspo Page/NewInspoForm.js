@@ -1,4 +1,5 @@
-import React, {useState} from "react"
+import React, {useState} from "react";
+import styled from "styled-components";
 
 function NewInspoForm({currentUser, onAddInspo}) {
 const [newInspoImg, setNewInspoImg] = useState("")
@@ -34,15 +35,15 @@ const [newInspoCaption, setNewInspoCaption] = useState("")
 
     return (
     <div className="new-inspo-form">
-        <h1>new inspo!</h1>
+        <Title>🌈 more inspiration 🌈</Title>
         <form onSubmit={handleNewInspoSubmit}>
-            <label hmtlfor="description">image:</label> 
+            <Input>image:</Input> 
                 <input 
                     type="text"
                     name="image"
                     value={newInspoImg}
                     onChange={(e) => setNewInspoImg(e.target.value)}/>
-            <label hmtlfor="description">caption:</label> 
+            <Input>caption:</Input> 
                 <input 
                     type="text"
                     name="caption"
@@ -55,3 +56,11 @@ const [newInspoCaption, setNewInspoCaption] = useState("")
 }
 
 export default NewInspoForm;
+
+const Title = styled.h1`
+  font-family: 'Lemon', serif;
+`
+
+const Input = styled.p`
+font-family: 'Anonymous Pro', monospace;
+`

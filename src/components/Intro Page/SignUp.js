@@ -1,14 +1,15 @@
 import React from "react"
+import styled from "styled-components";
 
 function SignUp({newUserName, setNewUserName, handleLoginSubmit, handleCreateAccountSubmit, loginUsername, setLoginUsername}) {
 
     
    return (
-       <div className="login-div">
+       <Wrapper>
            <div className="sign-in-div">
-               <h1> welcome back! ♻️</h1>
+               <Headers> welcome back! ♻️</Headers>
                <form onSubmit={handleLoginSubmit}>
-                    <label htmlFor="name">username: </label>
+               <Username>username: </Username>
                     <input
                         type="text"
                         id="name"
@@ -20,9 +21,9 @@ function SignUp({newUserName, setNewUserName, handleLoginSubmit, handleCreateAcc
                     </form>
            </div>
             <div className="sign-up">
-                <h1>new user? sign up here! </h1>
+                <Headers>new user? sign up here! </Headers>
                 <form className="new-user-form" onSubmit={handleCreateAccountSubmit}>
-                    <label htmlFor="name">username: </label>
+                    <Username>username: </Username>
                     <input 
                         type="text"
                         id="name"
@@ -33,9 +34,24 @@ function SignUp({newUserName, setNewUserName, handleLoginSubmit, handleCreateAcc
                     <button type="submit" className="profile-btn">create profile ♻️</button>
                 </form>
             </div>
-        </div>
+        </Wrapper>
    )
 }
 
 
 export default SignUp;
+
+const Wrapper = styled.div`
+  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+`;
+
+const Headers = styled.h1`
+    font-family: 'Lemon', serif;
+`
+
+const Username = styled.p`
+font-family: 'Anonymous Pro', monospace;
+`

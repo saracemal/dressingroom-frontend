@@ -1,4 +1,5 @@
-import React, {useState} from "react"
+import React, {useState} from "react";
+import styled from "styled-components";
 
 function ClosetForm({currentUser, onAddCloset}) {
 const [newCloset, setNewCloset] = useState("")
@@ -27,8 +28,8 @@ function handleNewClosetSubmit(e) {
   }
 
    return (
-       <div className="new-closet-form">
-           <h1>add new closet </h1>
+       <NewClosetWrapper>
+           <NewCloset>add new closet </NewCloset>
            <form onSubmit={handleNewClosetSubmit}>
                 <input 
                     type="text"
@@ -38,8 +39,34 @@ function handleNewClosetSubmit(e) {
                     onChange={(e) => setNewCloset(e.target.value)}/>
             <button className="new-closet-btn"type="submit">add closet 👠</button>
            </form>
-       </div>
+        </NewClosetWrapper>
    )
 }
 
 export default ClosetForm;
+
+const NewClosetWrapper = styled.div`
+    font-family: 'Anonymous Pro', monospace;
+    text-align: center;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    background-color: #9AF28D;
+    height: 350px;
+    width: 500px;
+    justify-content: space-evenly;
+    align-items: center;
+    opacity: 0.75;
+    padding: 20px;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out 0s;
+    :hover {
+        transform: scale(1.00);
+        opacity: 1;
+        box-shadow: 2px 5px black;
+  }
+`
+
+const NewCloset = styled.h1`
+    text-align: center;
+`

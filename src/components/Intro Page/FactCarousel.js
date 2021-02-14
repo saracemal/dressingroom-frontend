@@ -1,12 +1,13 @@
 import React from "react"
 import Carousel from 'react-elastic-carousel'
 import Item from "../Item";
+import styled from "styled-components";
 //add links!! later during stretch goal time 
 
 function FactCarousel() {
     return (
-        <div className="fact-carousel">
-            <h3>how fashion impacts the environment: 👇 </h3>
+        <CarouselWrapper>
+            <CarouselTitle>how fashion impacts the environment: 👇 </CarouselTitle>
             <Carousel itemsToShow={1}>
                 <Item>The fashion industry emits more carbon than international flights and maritime shopping combined. </Item>
                 <Item>In Europe, fashion companies went from an average offering of two collections per year in 2000 to five in 2011. Fast fashion companies offer between 12-24 collections a year. </Item>
@@ -18,8 +19,17 @@ function FactCarousel() {
                 <Item>Nearly 70 million barrels of oil are used each year to make the world’s polyester fiber, which is now the most commonly used fiber in our clothing. But it takes more than 200 years to decompose. </Item>
                 <Item>Less than 11% of brands are implementing recycling strategies for their items, and 3 out of 5 fast fashion items end up in a landfill. </Item>
             </Carousel>
-        </div>
+        </CarouselWrapper>
     )
 }
 
 export default FactCarousel;
+
+const CarouselWrapper = styled.div`
+    text-align: center;
+`
+// add font here!! 
+const CarouselTitle = styled.h3`
+font-family: 'Anonymous Pro', monospace;
+`
+
