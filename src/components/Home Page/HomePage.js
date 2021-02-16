@@ -19,5 +19,19 @@ function HomePage({closets, onDeleteCloset, onAddCloset, currentUser}) {
 export default HomePage;
 
 const Wrapper = styled.div`
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     background-color: lavender;
 `
+
+// .parent {
+//     display: grid;
+//     grid-template-columns: repeat(3, 1fr);
+//     grid-template-rows: repeat(3, 1fr);
+//     grid-column-gap: 0px;
+//     grid-row-gap: 0px;
+//     }
+    
+//     .div1 { grid-area: 1 / 1 / 2 / 6; }
+//     .div2 { grid-area: 2 / 1 / 4 / 2; }
+//     .div3 { grid-area: 2 / 2 / 4 / 4; }

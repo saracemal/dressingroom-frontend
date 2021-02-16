@@ -13,13 +13,13 @@ function DropDownButtons() {
             </div>
             <div>
             <DropDownBtn>🔗🔗🔗🔗🔗🔗</DropDownBtn>
-                    {/* <div class="dropdown-content">
-                        <a href="https://www.grailed.com">Grailed</a>
-                        <a href="https://www.heroine.com">Heroine</a>
-                        <a href="https://www.amazinggoodwill.com/shop-online">Goodwill (online!)</a>
-                        <a href="https://us.vestiairecollective.com/">Vestiaire</a>
-                        <a href="https://www.therealreal.com">TheRealReal</a>
-                    </div> */}
+                <DropDown>
+                        <DropDownContent href="https://www.grailed.com">Griled</DropDownContent>
+                        <DropDownContent href="https://www.heroine.com">Heroine</DropDownContent>
+                        <DropDownContent href="https://www.amazinggoodwill.com/shop-online">Goodwill (online!)</DropDownContent>
+                        <DropDownContent href="https://us.vestiairecollective.com/">Vestiaire</DropDownContent>
+                        <DropDownContent href="https://www.therealreal.com">TheRealReal</DropDownContent>
+                 </DropDown>
              </div>
         </DetailWrapper>
        )
@@ -64,28 +64,28 @@ const DropDownBtn = styled.button`
 `
 
 /* The container <div> - needed to position the dropdown content */
-// .dropdown {
-//   position: relative;
-//   display: inline-block;
-// }
+const DropDown = styled.div`
+  position: relative;
+  display: inline-block;
+`
 
 /* Dropdown Content (Hidden by Default) */
-// .dropdown-content {
-//   display: none;
-//   position: absolute;
-//   background-color: #f9f9f9;
-//   min-width: 160px;
-//   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-//   z-index: 1;
-// }
+const DropDownContent = styled.a`
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+ `
 
 /* Links inside the dropdown */
-// .dropdown-content a {
+// const DropDownContentA = styled.a`
 //   color: black;
 //   padding: 12px 16px;
 //   text-decoration: none;
 //   display: block;
-// }
+// `
 
 /* Change color of dropdown links on hover */
 // .dropdown-content a:hover {background-color: #f1f1f1}

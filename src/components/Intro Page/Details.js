@@ -17,16 +17,19 @@ export default Details;
 const Wrapper = styled.div`
     font-family: 'Anonymous Pro', monospace;
     text-align: center;
-    display: flex;
+    // display: flex;
+    display: grid;
+    grid-area: 2 / 1 / 4 / 3;
     color: black;
     // flex-direction: column;
     background-color: #9AF28D;
     height: 400px;
     width: 900px;
+    width: 50%;
     justify-content: space-evenly;
     align-items: center;
     opacity: 0.75;
-    padding: 20px;
+    padding: 30px;
     border-radius: 50%;
     transition: all 0.5s ease-in-out 0s;
     :hover {

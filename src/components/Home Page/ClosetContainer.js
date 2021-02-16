@@ -4,11 +4,11 @@ import styled from "styled-components"
 
 function ClosetContainer({closets, onDeleteCloset}) {
    return (
-       <div className="closet-container">
+       <Container>
            <Title>✨ My Closets ✨</Title>
            {closets.map((closet) => (
             <ClosetCard key={closet.id} closet={closet} onDeleteCloset={onDeleteCloset}/>))}
-       </div>
+       </Container>
    )
 }
 
@@ -16,4 +16,9 @@ export default ClosetContainer;
 
 const Title = styled.h1`
     font-family: 'Lemon', serif;
+`
+
+const Container = styled.div`
+    display: grid;
+    grid-area: 2 / 2 / 4 / 4;
 `

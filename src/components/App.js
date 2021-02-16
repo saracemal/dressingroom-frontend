@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Route, Switch, useHistory, Redirect } from "react-router-dom";
+import { Route, Switch, useHistory, Redirect, useParams } from "react-router-dom";
 import IntroPage from "./Intro Page/IntroPage"
 import HomePage from "./Home Page/HomePage"
 import ClosetPage from "./Closet Page/ClosetPage"
@@ -17,13 +17,14 @@ function App() {
   // model states
   const [users, setUsers] = useState([])
   const [closets, setClosets] = useState([])
+  const [closet, setCloset] = useState([])
   const [clothingItems, setClothingItems] = useState([])
   const [inspos, setInspos] = useState([])
 
   //form states 
-  const [userClosets, setUserClosets] = useState([])
-  const [userInspos, setUserInspos] = useState([])
-  const [userClothingItems, setUserClothingItems] = useState([])
+  // const [userClosets, setUserClosets] = useState([])
+  // const [userInspos, setUserInspos] = useState([])
+  // const [userClothingItems, setUserClothingItems] = useState([])
 
   // let history = useHistory();
 
@@ -46,8 +47,10 @@ function App() {
           if (user.name === loginUsername) {
               setIsLoggedIn(true)
               setCurrentUser(user)
-              setUserClosets(user.closets)
-              setUserInspos(user.inspos)
+              setClosets(user.closets)
+              setInspos(user.inspos)
+              // setUserClosets(user.closets)
+              // setUserInspos(user.inspos)
               console.log(user.name)
               // history.push(`/home/${user.id}`)
           }
@@ -68,10 +71,11 @@ function App() {
     })
       .then((r) => r.json())
       .then(newUser => {
+        console.log(newUser.name)
         setCurrentUser(newUser)
         setIsLoggedIn(true)
-        setUserClosets(newUser.closets)
-        setUserInspos(newUser.inspos)
+        setClosets(newUser.closets)
+        setInspos(newUser.inspos)
       })
   }
 
@@ -91,11 +95,11 @@ function App() {
 
 
   // INSPO FETCH
-  useEffect(() => {
-    fetch("http://localhost:3000/inspos")
-    .then((r) => r.json())
-    .then(setInspos)
-  }, [])
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/inspos")
+  //   .then((r) => r.json())
+  //   .then(setInspos)
+  // }, [])
 
   //login fetches
     //
@@ -222,6 +226,8 @@ function handleDeleteClothingItem(id) {
         </Route>
         <Route exact path="/closet/:id">
           <ClosetPage
+          closet={closet}
+          setCloset={setCloset}
           currentUser={currentUser}
           onDeleteClothing={handleDeleteClothingItem}
           onAddClothing={handleAddClothingItem}

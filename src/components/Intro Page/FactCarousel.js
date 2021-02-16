@@ -27,6 +27,8 @@ export default FactCarousel;
 
 const CarouselWrapper = styled.div`
     text-align: center;
+    display: grid;
+    grid-area: 4 / 1 / 5 / 5;
 `
 // add font here!! 
 const CarouselTitle = styled.h3`

@@ -5,6 +5,7 @@ import styled from "styled-components";
 //create small button for delete, maybe a trash can or something?? 
 function ClothingItemCard({clothingItem, onDeleteClothing}) {
     const [purchaseToggle, setPurchaseToggle] = useState(true)
+    const [purchased, setPurchased] = useState(true)
 
     // then call this on the onClick and pass in handlePurchaseToggle in the body of this function
     // function handleTogglePatch(e) {
@@ -13,8 +14,24 @@ function ClothingItemCard({clothingItem, onDeleteClothing}) {
     //     fetch
     // }
     
-    function handlePurchaseToggle() {
+    function handlePurchaseToggle(e) {
+        e.preventDefault()
+
+        const purchaseObj = {
+            purchased: purchased
+        }
+
+        fetch(`http://localhost:3000/clothing_items/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                purchaseObj
+              })
+          })
         setPurchaseToggle((purchaseToggle) => !purchaseToggle)
+        setPurchased((purchased) => !purchased)
     }
     
 

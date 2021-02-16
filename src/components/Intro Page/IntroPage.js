@@ -20,6 +20,24 @@ function IntroPage({handleLoginSubmit, loginUsername, setLoginUsername, newUserN
 export default IntroPage;
 
 const Wrapper = styled.div`
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     background-color: lavender;
     text-align: center;
 `
+
+// .parent {
+//     display: grid;
+//     grid-template-columns: repeat(4, 1fr);
+//     grid-template-rows: repeat(4, 1fr);
+//     grid-column-gap: 0px;
+//     grid-row-gap: 0px;
+//     }
+    
+//     .div1 { grid-area: 1 / 1 / 2 / 6; }
+//     .div2 { grid-area: 2 / 1 / 4 / 3; }
+//     .div3 { grid-area: 2 / 3 / 4 / 5; }
+//     .div4 { grid-area: 4 / 1 / 5 / 5; }

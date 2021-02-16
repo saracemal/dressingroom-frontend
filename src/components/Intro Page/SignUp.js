@@ -42,8 +42,12 @@ function SignUp({newUserName, setNewUserName, handleLoginSubmit, handleCreateAcc
 export default SignUp;
 
 const Wrapper = styled.div`
+grid-area: asideRight;
   width: 40%;
-  display: flex;
+//   display: flex;
+display: grid;
+grid-area: 2 / 3 / 4 / 5;
+  flex-direction: column;
   flex-wrap: wrap;
   text-align: center;
 `;

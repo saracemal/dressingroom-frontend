@@ -15,6 +15,8 @@ export default Header;
 const HeaderDiv = styled.div`
 height: 10vh;
 text-align: center;
+display: grid;
+grid-area: 1 / 1 / 2 / 6; 
   opacity: 0.75;
   background-color: #8abbff;
   transition: all 0.5s ease-in-out 0s;
