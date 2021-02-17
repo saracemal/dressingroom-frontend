@@ -119,7 +119,7 @@ function App() {
   
   //CLOSET HANDLERS
   function handleAddCloset(newCloset) {
-    const updatedClosetArray = [...closets, newCloset];
+    const updatedClosetArray = [newCloset, ...closets];
     setClosets(updatedClosetArray)
   }
 

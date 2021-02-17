@@ -7,7 +7,7 @@ import Disclaimer from "./Disclaimer"
 import styled from "styled-components"
 // import { Link, useParams } from "react-router-dom";
 
-function ClosetPage({ onDeleteClothing, onAddClothing, currentUser}) {
+function ClosetPage({ onDeleteClothing, onAddClothing, currentUser, closet, setCloset}) {
     // const { id } = useParams();
 //     const params = useParams()
 //     console.log(params);
@@ -52,7 +52,7 @@ const sortedClothingItems = filteredClothingItems.sort((clothingItemA, clothingI
     return (
         <Wrapper>
             <MainHeader />
-            <Title>Closet! I'm looking for: </Title>
+            <Title>I'm looking for: </Title>
             <SortingContainer onSearchChange={setSearchedClothingItems} />
             <button className="id-btn" onClick={() => setSortBy('id')}>Sort by Default</button>
             <button className="brand-btn" onClick={() => setSortBy('brand')}>Sort by Brand </button>
@@ -61,6 +61,8 @@ const sortedClothingItems = filteredClothingItems.sort((clothingItemA, clothingI
             onDeleteClothing={onDeleteClothing}
             />
             <NewClothingItemForm
+            closet={closet}
+            setCloset={setCloset}
             currentUser={currentUser}
             onAddClothing={onAddClothing} />
             <Disclaimer />

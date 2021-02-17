@@ -9,10 +9,13 @@ function HomePage({closets, onDeleteCloset, onAddCloset, currentUser}) {
     return (
         <Wrapper>
             <MainHeader />
-            <DropDownButtons />
-            <ClosetForm currentUser={currentUser} onAddCloset={onAddCloset} />
+            <Title>✨ My Closets ✨</Title>
             <ClosetContainer currentUser={currentUser} closets={closets} onDeleteCloset={onDeleteCloset}/>
-            </Wrapper>
+            <Bottom>
+                <DropDownButtons />
+                <ClosetForm currentUser={currentUser} onAddCloset={onAddCloset} />
+            </Bottom>
+        </Wrapper>
     )
 }
 
@@ -22,7 +25,18 @@ const Wrapper = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     background-color: lavender;
+
 `
+const Title = styled.h1`
+    text-align: center;
+    font-family: 'Lemon', serif;
+`
+
+const Bottom = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
 
 // .parent {
 //     display: grid;

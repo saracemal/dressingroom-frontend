@@ -27,6 +27,7 @@ function DropDownButtons() {
 export default DropDownButtons;
 
 const DetailWrapper = styled.div`
+    grid-area: 3 / 1 / 4 / 3; 
     font-family: 'Anonymous Pro', monospace;
     text-align: center;
     display: flex;

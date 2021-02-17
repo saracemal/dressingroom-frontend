@@ -5,7 +5,6 @@ import styled from "styled-components"
 function ClosetContainer({closets, onDeleteCloset}) {
    return (
        <Container>
-           <Title>✨ My Closets ✨</Title>
            {closets.map((closet) => (
             <ClosetCard key={closet.id} closet={closet} onDeleteCloset={onDeleteCloset}/>))}
        </Container>
@@ -14,11 +13,13 @@ function ClosetContainer({closets, onDeleteCloset}) {
 
 export default ClosetContainer;
 
-const Title = styled.h1`
-    font-family: 'Lemon', serif;
-`
+// const Title = styled.h1`
+//     font-family: 'Lemon', serif;
+// `
 
 const Container = styled.div`
-    display: grid;
-    grid-area: 2 / 2 / 4 / 4;
+    display: flex;
+  flex-wrap: wrap;  
+  flex-direction: row;
+    text-align: center;
 `

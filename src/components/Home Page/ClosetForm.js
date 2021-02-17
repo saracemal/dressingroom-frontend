@@ -50,7 +50,7 @@ const NewClosetWrapper = styled.div`
     text-align: center;
     display: flex;
     color: black;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #9AF28D;
     height: 350px;
     width: 500px;

@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import styled from "styled-components"
 
-function NewClothingItemForm({currentUser, onAddClothing}) {
+function NewClothingItemForm({closet, setCloset, currentUser, onAddClothing}) {
 const [newBrand, setNewBrand] = useState("")
 const [newSize, setNewSize] = useState("")
 const [newDescription, setNewDescription] = useState("")
@@ -18,6 +18,7 @@ function handleNewClothingItemSubmit(e) {
       },
       body: JSON.stringify({
         user_id: currentUser.id,
+        closet_id: 1,
         brand: newBrand,
         size: newSize,
         description: newDescription, 
@@ -27,6 +28,8 @@ function handleNewClothingItemSubmit(e) {
     })
       .then((r) => r.json())
       .then((newClothingItem) => onAddClothing(newClothingItem))
+      // onAddClothing(newClothingItem))
+      // setCloset(closet.id))
     //   .then(resObj => {
     //     setNewBrand(resObj.brand)
     //     setNewSize(resObj.size)

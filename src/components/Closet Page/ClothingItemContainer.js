@@ -43,7 +43,7 @@ function ClothingItemContainer({ onDeleteClothing}) {
     return (
         <ClosetWrapper>
             {closet.clothing_items ? (closet.clothing_items.map((clothingItem) => (
-            <ClothingItemCard key={clothingItem.id} closet={closet.id} clothingItem={clothingItem} onDeleteClothing={onDeleteClothing} />))) : null}
+            <ClothingItemCard key={clothingItem.id} closet={closet.id} clothingItem={clothingItem} onDeleteClothing={onDeleteClothing} />))) : <H1>No items yet, let's add some!</H1>}
         </ClosetWrapper>
     )
 }
@@ -77,7 +77,11 @@ const ClosetWrapper = styled.div`
     flex-direction: row;
     text-align: center;
 `
-
+const H1 = styled.h1`
+    text-align: center;
+    display: flex;
+    font-family: 'Lemon', serif;
+`
 // const Title = styled.h1`
 // font-family: 'Lemon', serif;
 // `
