@@ -17,11 +17,9 @@ export default Details;
 const Wrapper = styled.div`
     font-family: 'Anonymous Pro', monospace;
     text-align: center;
-    // display: flex;
     display: grid;
     grid-area: 2 / 1 / 4 / 3;
     color: black;
-    // flex-direction: column;
     background-color: #9AF28D;
     height: 400px;
     margin-left: 70px;

@@ -11,7 +11,6 @@ function InspoContainer({inspos, onDeleteInspo}) {
 
     return (
     <InspoWrapper>
-        {/* <Title>✨ Inspiration ✨</Title> */}
         {inspoCards}
     </InspoWrapper>
     )
@@ -20,13 +19,8 @@ function InspoContainer({inspos, onDeleteInspo}) {
 export default InspoContainer;
 
 const InspoWrapper = styled.div`
-    // width: 80%;
   display: flex;
   flex-wrap: wrap;  
   flex-direction: row;
 text-align: center;
 `
-
-// const Title = styled.h1`
-// font-family: 'Lemon', serif;
-// `

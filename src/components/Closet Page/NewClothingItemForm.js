@@ -18,7 +18,7 @@ function handleNewClothingItemSubmit(e) {
       },
       body: JSON.stringify({
         user_id: currentUser.id,
-        closet_id: 1,
+        // closet_id: 1,
         brand: newBrand,
         size: newSize,
         description: newDescription, 
@@ -39,39 +39,39 @@ function handleNewClothingItemSubmit(e) {
   }
     
    return (
-       <div className="new-clothingitem-form">
+       <NewClothingItemWrapper>
            <Title>🌱 closet addition 🌱</Title>
            <form onSubmit={handleNewClothingItemSubmit}>
             <Inputs>brand:</Inputs> 
-                <input 
+                <InputForm 
                     type="text"
                     name="brand"
                     placeholder="brand"
                     value={newBrand}
                     onChange={(e) => setNewBrand(e.target.value)}/>
                 <Inputs>size:</Inputs> 
-                    <input 
+                    <InputForm 
                     type="number"
                     name="size"
                     placeholder="size"
                     value={newSize}
                     onChange={(e) => setNewSize(parseInt(e.target.value))}/>
                 <Inputs >description:</Inputs> 
-                    <input 
+                    <InputForm 
                     type="text"
                     name="description"
                     placeholder="description"
                     value={newDescription}
                     onChange={(e) => setNewDescription(e.target.value)}/>
                 <Inputs >season:</Inputs> 
-                    <input 
+                    <InputForm 
                     type="text"
                     name="season"
                     placeholder="season"
                     value={newSeason}
                     onChange={(e) => setNewSeason(e.target.value)}/>
                 <Inputs >image: </Inputs> 
-                    <input 
+                    <InputForm 
                     type="text"
                     name="image"
                     placeholder="image url"
@@ -79,16 +79,49 @@ function handleNewClothingItemSubmit(e) {
                     onChange={(e) => setNewImgUrl(e.target.value)}/>
                 <button type="submit" className="new-item">✨ add new item ✨</button>
            </form>
-       </div>
+       </NewClothingItemWrapper>
    )
 }
 
 export default NewClothingItemForm;
 
+const NewClothingItemWrapper = styled.div`
+  font-family: 'Anonymous Pro', monospace;
+  text-align: center;
+  display: flex;
+  color: black;
+  flex-direction: row;
+  background-color: #9AF28D;
+  height: 500px;
+  width: 800px;
+  justify-content: space-evenly;
+  align-items: center;
+  opacity: 0.75;
+  padding: 20px;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out 0s;
+  :hover {
+      transform: scale(1.00);
+      opacity: 1;
+      box-shadow: 2px 5px black;
+  }
+`
+
 const Inputs = styled.p`
 font-family: 'Anonymous Pro', monospace;
 `
-
 const Title = styled.h1`
     font-family: 'Lemon', serif;
+`
+const InputForm = styled.input`
+  text-align: center;
+  width: 250px;
+  height: 30px;
+  border: 0;
+  color: black;
+  border-radius: 5px;
+  background: opacity: 0.5;
+  font-family: 'Anonymous Pro', monospace;
+  border-bottom: 2px dotted black;
+  :focus { outline: none; }
 `

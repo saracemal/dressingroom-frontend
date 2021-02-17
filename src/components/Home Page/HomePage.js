@@ -25,7 +25,6 @@ const Wrapper = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     background-color: lavender;
-
 `
 const Title = styled.h1`
     text-align: center;

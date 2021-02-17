@@ -53,7 +53,7 @@ const Image = styled.img`
   border-radius: 4px;  /* Rounded border */
   padding: 5px; /* Some padding */
   width: 250px; /* Set a small width */
- 
+  align-items: center;
   object-fit: contain;
 
 `;

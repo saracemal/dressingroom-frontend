@@ -7,7 +7,7 @@ import Disclaimer from "./Disclaimer"
 import styled from "styled-components"
 // import { Link, useParams } from "react-router-dom";
 
-function ClosetPage({ onDeleteClothing, onAddClothing, currentUser, closet, setCloset}) {
+function ClosetPage({ clothingItems, setClothingItems, onDeleteClothing, onAddClothing, currentUser, closet, setCloset}) {
     // const { id } = useParams();
 //     const params = useParams()
 //     console.log(params);
@@ -16,7 +16,7 @@ const [sortBy, setSortBy] = useState('id');
 const [searchedClothingItems, setSearchedClothingItems] = useState("")
 // const [closet, setCloset] = useState(null)
 // const [isLoaded, setIsLoaded] = useState(false)
-const [clothingItems, setClothingItems] = useState([])
+// const [clothingItems, setClothingItems] = useState([])
 
 // useEffect(() => {
 //     fetch(`http://localhost:3000/closets/${params.id}`)
@@ -52,26 +52,33 @@ const sortedClothingItems = filteredClothingItems.sort((clothingItemA, clothingI
     return (
         <Wrapper>
             <MainHeader />
-            <Title>I'm looking for: </Title>
-            <SortingContainer onSearchChange={setSearchedClothingItems} />
-            <button className="id-btn" onClick={() => setSortBy('id')}>Sort by Default</button>
-            <button className="brand-btn" onClick={() => setSortBy('brand')}>Sort by Brand </button>
-            <ClothingItemContainer 
-            clothingItems={filteredClothingItems} 
-            onDeleteClothing={onDeleteClothing}
-            />
-            <NewClothingItemForm
-            closet={closet}
-            setCloset={setCloset}
-            currentUser={currentUser}
-            onAddClothing={onAddClothing} />
-            <Disclaimer />
+                <Title>I'm looking for: </Title>
+                <SortingContainer onSearchChange={setSearchedClothingItems} />
+                <button className="id-btn" onClick={() => setSortBy('id')}>Sort by Default</button>
+                <button className="brand-btn" onClick={() => setSortBy('brand')}>Sort by Brand </button>
+                <ClothingItemContainer 
+                clothingItems={filteredClothingItems} 
+                onDeleteClothing={onDeleteClothing}
+                />
+            <BottomWrapper>
+                <NewClothingItemForm
+                closet={closet}
+                setCloset={setCloset}
+                currentUser={currentUser}
+                onAddClothing={onAddClothing} />
+                <Disclaimer />
+            </BottomWrapper>
         </Wrapper>
     )
    
 }
 
 export default ClosetPage;
+
+const BottomWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
 
 const Wrapper = styled.div`
     background-color: lavender;

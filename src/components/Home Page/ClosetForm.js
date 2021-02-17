@@ -29,9 +29,9 @@ function handleNewClosetSubmit(e) {
 
    return (
        <NewClosetWrapper>
-           <NewCloset>add new closet </NewCloset>
+           <NewCloset>✨ add new closet ✨</NewCloset>
            <form onSubmit={handleNewClosetSubmit}>
-                <input 
+                <InputForm 
                     type="text"
                     name="name"
                     placeholder="title"
@@ -44,6 +44,19 @@ function handleNewClosetSubmit(e) {
 }
 
 export default ClosetForm;
+
+const InputForm = styled.input`
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  border: 0;
+  color: black;
+  border-radius: 5px;
+  background: opacity: 0.5;
+  font-family: 'Anonymous Pro', monospace;
+  border-bottom: 2px dotted black;
+  :focus { outline: none; }
+`
 
 const NewClosetWrapper = styled.div`
     font-family: 'Anonymous Pro', monospace;
