@@ -32,9 +32,10 @@ const Wrapper = styled.div`
     padding: 30px;
     border-radius: 50%;
     transition: all 0.5s ease-in-out 0s;
+    box-shadow: 1px 3px black;
     :hover {
         opacity: 1;
-        transform: scale(1.00);
+        transform: scale(1.05);
         box-shadow: 2px 5px black;
   }
 `

@@ -12,19 +12,36 @@ function DropDownButtons() {
                 <p>Feeling stuck on where to look? Check out our recommendations. 🔮</p>
             </div>
             <div>
+            <div class="dropdown">
             <DropDownBtn>🔗🔗🔗🔗🔗🔗</DropDownBtn>
-                <DropDown>
-                        <DropDownContent href="https://www.grailed.com">Griled</DropDownContent>
-                        <DropDownContent href="https://www.heroine.com">Heroine</DropDownContent>
-                        <DropDownContent href="https://www.amazinggoodwill.com/shop-online">Goodwill (online!)</DropDownContent>
-                        <DropDownContent href="https://us.vestiairecollective.com/">Vestiaire</DropDownContent>
-                        <DropDownContent href="https://www.therealreal.com">TheRealReal</DropDownContent>
-                 </DropDown>
+                <div class="dropdown-content">
+                            <a href="https://www.grailed.com">Grailed</a>
+                            <a href="https://www.heroine.com">Heroine</a>
+                             <a href="https://www.amazinggoodwill.com/shop-online">Goodwill (online!)</a>
+                             <a href="https://us.vestiairecollective.com/">Vestiaire</a>
+                             <a href="https://www.therealreal.com">TheRealReal</a>
+                </div>
+                </div>
              </div>
         </DetailWrapper>
        )
 }
 export default DropDownButtons;
+
+// {/* <DropDown>
+//                 <DropDownBtn>🔗🔗🔗🔗🔗🔗</DropDownBtn>
+//                 <div class="dropdown-content">
+//                             {/* <DropDownContent> */}
+//                             <a href="https://www.grailed.com">Grailed</a>
+//                             <a href="https://www.heroine.com">Heroine</a>
+//                             <a href="https://www.amazinggoodwill.com/shop-online">Goodwill (online!)</a>
+//                             <a href="https://us.vestiairecollective.com/">Vestiaire</a>
+//                             <a href="https://www.therealreal.com">TheRealReal</a>
+//                             {/* </DropDownContent> */}
+//                             </div>
+//                  </DropDown> */}
+
+
 
 const DetailWrapper = styled.div`
     grid-area: 3 / 1 / 4 / 3; 
@@ -41,9 +58,10 @@ const DetailWrapper = styled.div`
     padding: 20px;
     border-radius: 50%;
     transition: all 0.5s ease-in-out 0s;
+    box-shadow: 1px 3px black;
     :hover {
         opacity: 1;
-        transform: scale(1.00);
+        transform: scale(1.05);
         box-shadow: 2px 5px black;
   }
 `
@@ -71,22 +89,25 @@ const DropDown = styled.div`
 `
 
 /* Dropdown Content (Hidden by Default) */
-const DropDownContent = styled.a`
+const DropDownContent = styled.div`
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    hover: {
+        display: block;
+    }
  `
 
 /* Links inside the dropdown */
-// const DropDownContentA = styled.a`
-//   color: black;
-//   padding: 12px 16px;
-//   text-decoration: none;
-//   display: block;
-// `
+const DropDownContentA = styled.a`
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+`
 
 /* Change color of dropdown links on hover */
 // .dropdown-content a:hover {background-color: #f1f1f1}
