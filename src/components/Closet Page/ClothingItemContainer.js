@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from "react"
 import ClothingItemCard from "./ClothingItemCard"
 import styled from "styled-components"
-// import { useParams } from "react-router-dom";
 
-//if clothing items === null, return "no clothes yet! let's add some."
-// or display clothing item cards
 //  ADD CLOTHINGITEMS BACK AS PROP IF DOESN'T WORK 
 function ClothingItemContainer({ closet, setCloset, clothingItems, setClothingItems, onDeleteClothing}) {
     // const params = useParams()
@@ -49,7 +46,7 @@ function ClothingItemContainer({ closet, setCloset, clothingItems, setClothingIt
 
 export default ClothingItemContainer;
 
-// PUT THIS BACK IF NECESSARY!!! THIS ROUTES THE INDIVIDUAL CLOSET ITEMS
+// THIS ROUTES THE INDIVIDUAL CLOSET ITEMS
 // {closet.clothing_items ? (closet.clothing_items.map((clothingItem) => (
 //     <ClothingItemCard key={clothingItem.id} closet={closet.id} clothingItem={clothingItem} onDeleteClothing={onDeleteClothing} />))) : <H1>No items yet, let's add some!</H1>}
 
@@ -81,6 +78,3 @@ const H1 = styled.h1`
     display: flex;
     font-family: 'Lemon', serif;
 `
-// const Title = styled.h1`
-// font-family: 'Lemon', serif;
-// `
