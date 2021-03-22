@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 
-// complete toggle function!! 
-//create small button for delete, maybe a trash can or something?? 
 function ClothingItemCard({clothingItem, onDeleteClothing}) {
     const [purchaseToggle, setPurchaseToggle] = useState(true)
     const [purchased, setPurchased] = useState(true)
